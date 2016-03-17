@@ -1,7 +1,8 @@
 <ul class="nav nav-pills nav-stacked">
-    {% for book in listBooks  %}
+    {% for book in listBook %}
         <li>
-            <a href="{{ path('ab_platform_read',{'id':book.id}) }}">{{ book.titre }}</a>
+            <a href="{{ path('ab_platform_read',{'id':book.id}) }}">
+                {{ book.titre }}</a>
         </li>
     {% endfor %}
 </ul>
