@@ -3,12 +3,17 @@
 namespace AB\PlatformBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class BookController extends Controller
 {
-    public function AccueilAction()
+    public function accueilAction($page)
     {
-       return $this->render('ABPlatformBundle:accueil.html.twig');
+        if($page<2){
+            throw new NotFoundHttpException('Page"'.$page.'" inexistante.');
+        }
+            return $this->render('ABPlatformBundle:Book:accueil.html.twig');
+
     }
 
     public function addAction(){

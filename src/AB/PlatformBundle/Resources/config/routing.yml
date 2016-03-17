@@ -1,23 +1,25 @@
 ab_platform_accueil:
-    path:     /platform/accueil
-    defaults: { _controller: ABPlatformBundle:Book:index }
+    path:     /accueil/{page}
+    defaults: { _controller: ABPlatformBundle:Book:accueil,page: 2 }
+    requirements:
+        page: \d*
 
 ab_platform_add:
-    path:    /platform/add
+    path:    /add
     defaults: {_controller: ABPLatformBundle:Book:add}
 
 ab_platform_delete:
-    path:    /platform/delete/{id}
+    path:    /delete/{id}
     defaults: {_controller: ABPlatformBundle:Book:delete}
     requirements:
         id: \d+
 
 ab_platform_update:
-    path:    /platform/update/{id}
+    path:    /update/{id}
     defaults: {_controller: ABPlatformBundle:Book:update}
     requirements:
         id: \d+
 
 ab_platform_read:
-    path:    /platform/read
+    path:    /read
     defaults: {_controller: ABPlatformBundle:Book:read}

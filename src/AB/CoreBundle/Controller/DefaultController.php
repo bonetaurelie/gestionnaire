@@ -3,11 +3,13 @@
 namespace AB\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function accueilAction()
     {
-        return $this->render('ABCoreBundle:layout.html.twig');
+            return $this->render('ABCoreBundle:Core:accueil.html.twig');
     }
+
 }
