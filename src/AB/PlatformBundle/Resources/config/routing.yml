@@ -21,4 +21,3 @@ ab_platform_update:
 ab_platform_read:
     path:    /platform/read
     defaults: {_controller: ABPlatformBundle:Book:read}
-    
