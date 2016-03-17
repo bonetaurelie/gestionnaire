@@ -24,7 +24,7 @@ class Book
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="text", unique=true)
+     * @ORM\Column(name="titre", type="text", unique=false)
      */
     private $titre;
 
