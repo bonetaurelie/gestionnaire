@@ -23,8 +23,6 @@ class BookController extends Controller
 
     }
 
-    }
-
     public function deleteAction($id){
 
     }
