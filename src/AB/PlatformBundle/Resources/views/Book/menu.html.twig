@@ -1,4 +1,4 @@
-<ul>
+<ul class="nav nav-pills nav-stacked">
     {% for book in listbooks  %}
         <li>
             <a href="{{ path('ab_platform_read',{'id':book.id}) }}">{{ book.titre }}</a>
