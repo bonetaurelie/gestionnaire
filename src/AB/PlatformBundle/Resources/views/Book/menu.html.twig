@@ -1,0 +1,7 @@
+<ul>
+    {% for book in listbooks  %}
+        <li>
+            <a href="{{ path('ab_platform_read',{'id':book.id}) }}">{{ book.titre }}</a>
+        </li>
+    {% endfor %}
+</ul>
