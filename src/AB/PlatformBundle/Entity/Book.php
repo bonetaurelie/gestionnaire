@@ -49,6 +49,12 @@ class Book
      */
     private $quantiteDispo;
 
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="date", type="date")
+     */
+    private $date;
 
     /**
      * Get id
@@ -150,5 +156,28 @@ class Book
     public function getQuantiteDispo()
     {
         return $this->quantiteDispo;
+    }
+
+    /**
+     * Set date
+     *
+     * @param date $date
+     * @return Book
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return date
+     */
+    public function getDate()
+    {
+        return $this->Date;
     }
 }

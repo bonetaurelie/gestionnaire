@@ -31,8 +31,8 @@ class BookController extends Controller
     }
 
     public function readAction(){
-        $book= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->findAll();
-        return $this->render('ABPlatformBundle:Book:read.html.twig',array('book'=>$book));
+        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->findAll();
+        return $this->render('ABPlatformBundle:Book:read.html.twig',array('listBook'=>$listBook));
     }
 
     public function menuAction($limit= 4){

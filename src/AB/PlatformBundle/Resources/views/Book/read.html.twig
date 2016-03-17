@@ -6,12 +6,21 @@
 
 {% block body %}
 <h1>Livres disponibles à l'achat:</h1>
-    <a class="btn btn-primary btn-lg" href="{{ path('ab_core_accueil') }}">Accueil</a>
+    <ul>
+    {% for book in listBook %}
+        <li>
+            {{ book.titre|upper }}, {{ book.auteur }}<br/>
+            Prix: {{ book.prix }}€<br/>
+            Quantité: {{ book.quantiteDispo }}
+        </li>
+    <a class="btn btn-primary btn-md" href="{{ path('ab_core_accueil') }}">Accueil</a>
+    {% endfor %}
+        </ul>
 <p>
     {% if app.session.flashBag.has('notice') %}
     {% for msg in app.session.flashBag.get('notice') %}
     <p class="alert alert-info">message flash: {{ msg }} </p>
-    {% endfor %}
+        {% endfor %}
         {% endif %}
 </p>
 {% endblock %}
