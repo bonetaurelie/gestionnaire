@@ -1,0 +1,7 @@
+ab_core:
+    resource: "@ABCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
