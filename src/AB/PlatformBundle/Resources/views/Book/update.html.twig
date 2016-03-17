@@ -1,11 +1,11 @@
 {% extends 'ABPlatformBundle::layout.html.twig' %}
 
 {% block title %}
-    Ajouter un livre - {{ parent() }}
+    Modifier le livre - {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Saisissez votre livre:</h1>
+    <h1 class="text-center">Modifier les champs nécessaires:</h1>
     {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_errors(form) }}
 
