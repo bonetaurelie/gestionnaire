@@ -1,9 +1,3 @@
-ab_platform_accueil:
-    path:     /accueil/{page}
-    defaults: { _controller: ABPlatformBundle:Book:accueil,page: 2 }
-    requirements:
-        page: \d*
-
 ab_platform_add:
     path:    /add
     defaults: {_controller: ABPLatformBundle:Book:add}
