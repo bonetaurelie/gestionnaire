@@ -13,7 +13,10 @@
             Prix: {{ book.prix }}€<br/>
             Quantité: {{ book.quantiteDispo }}
         </li>
-    <a class="btn btn-primary btn-md" href="{{ path('ab_core_accueil') }}">Accueil</a>
+        <a class="btn btn-primary btn-md" href="{{ path('ab_core_accueil') }}">Accueil</a>
+        <a class="btn btn-warning btn-md" href="{{ path('ab_platform_update',{'id':book.id}) }}">Modifier le livre</a>
+        <a class="btn btn-danger btn-md" href="{{ path('ab_platform_delete',{'id':book.id}) }}">Supprimer le livre</a>
+
     {% endfor %}
         </ul>
 <p>
