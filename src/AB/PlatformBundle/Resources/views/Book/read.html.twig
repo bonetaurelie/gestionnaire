@@ -1,0 +1,16 @@
+{% extends 'ABPlatformBundle::layout.html.twig' %}
+
+{% block title %}
+    Livres disponibles - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<h1>Livres disponilbes à l'achat:</h1>
+
+<p>
+    {% if app.session.flashBag.has('notice') %}
+    {% for msg in app.session.flashBag.get('notice') %}
+    <p class="alert alert-info">message flash: {{ msg }} </p>
+    {% endfor %}
+        {% endif %}
+</p>
