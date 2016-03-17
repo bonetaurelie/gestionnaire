@@ -1,6 +1,6 @@
 ab_platform_add:
     path:    /add
-    defaults: {_controller: ABPLatformBundle:Book:add}
+    defaults: {_controller: ABPlatformBundle:Book:add}
 
 ab_platform_delete:
     path:    /delete/{id}
