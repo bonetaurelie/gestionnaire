@@ -5,7 +5,7 @@ namespace AB\PlatformBundle\Controller;
 use AB\PlatformBundle\Entity\Book;
 use AB\PlatformBundle\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Request;
 
 class BookController extends Controller
 {

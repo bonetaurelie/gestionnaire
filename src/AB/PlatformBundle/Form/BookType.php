@@ -19,7 +19,7 @@ class BookType extends AbstractType
             ->add('auteur')
             ->add('prix')
             ->add('quantiteDispo')
-            ->add('Enregistrer','submit')
+            ->add('save','submit')
         ;
     }
     

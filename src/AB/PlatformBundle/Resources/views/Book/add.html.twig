@@ -1,4 +1,4 @@
-{% extends ABPlatformBundle::layout.html.twig %}
+{% extends 'ABPlatformBundle::layout.html.twig' %}
 
 {% block title %}
 Ajouter un livre - {{ parent() }}
@@ -11,7 +11,7 @@ Ajouter un livre - {{ parent() }}
 
 <div class="form-group">
     {{ form_label(form.titre, "Titre du livre", {'label_attr': {'class': 'col-md-4 control-label'}}) }}
-    {{ form_errror(form.titre) }}
+    {{ form_errors(form.titre) }}
     <div class="col-md-6">
         {{ form_widget(form.titre, {'attr': {'class': 'form-control'}}) }}
     </div>
@@ -19,7 +19,7 @@ Ajouter un livre - {{ parent() }}
 
 <div class="form-group">
     {{ form_label(form.auteur, "Auteur du livre", {'label_attr': {'class': 'col-md-4 control-label'}}) }}
-    {{ form_errror(form.auteur) }}
+    {{ form_errors(form.auteur) }}
     <div class="col-md-6">
         {{ form_widget(form.auteur, {'attr': {'class': 'form-control'}}) }}
     </div>
@@ -27,21 +27,22 @@ Ajouter un livre - {{ parent() }}
 
 <div class="form-group">
     {{ form_label(form.prix, "Prix du livre", {'label_attr': {'class': 'col-md-4 control-label'}}) }}
-    {{ form_errror(form.prix) }}
+    {{ form_errors(form.prix) }}
     <div class="col-md-6">
         {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
     </div>
 </div>
 
 <div class="form-group">
-    {{ form_label(form.quantite_dispo, "Quantité disponible", {'label_attr': {'class': 'col-md-4 control-label'}}) }}
-    {{ form_errror(form.quantite_dispo) }}
+    {{ form_label(form.quantiteDispo, "Quantité disponible", {'label_attr': {'class': 'col-md-4 control-label'}}) }}
+    {{ form_errors(form.quantiteDispo) }}
     <div class="col-md-6">
-        {{ form_widget(form.quantite_dispo, {'attr': {'class': 'form-control'}}) }}
+        {{ form_widget(form.quantiteDispo, {'attr': {'class': 'form-control'}}) }}
     </div>
 </div>
 
-{{ form_widget(form.enregistrer, {'attr' {'class': 'btn-btn-primary'}}) }}
+{{ form_widget(form.save, {'attr': {'class': 'btn-btn-primary'}}) }}
 
 {{ form_rest(form) }}
 {{ form_end(form) }}
+{% endblock %}
