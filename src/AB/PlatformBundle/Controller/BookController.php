@@ -28,15 +28,16 @@ class BookController extends Controller
 
     public function updateAction($id, Request $request){
         $book= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
-        $book= new Book();
+
         $form=$this->get('form.factory')->create(new BookType(), $book);
         if($form->handleRequest($request)->isValid()){
             $em=$this->getDoctrine()->getManager();
             $em->persist($book);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été modifié');
-            return $this->render('ABPlatformBundle:Book:update.html.twig');
+            return $this->render('ABPlatformBundle:Book:read.html.twig',array('id'=>$book->getId()));
         }
+        return $this->render('ABPlatformBundle:Book:update.html.twig',array('form'=>$form->createView()));
     }
 
     public function readAction(){
