@@ -8,7 +8,7 @@ class BookController extends Controller
 {
     public function AccueilAction()
     {
-        render('ABPlatformBundle:accueil.html.twig');
+       return $this->render('ABPlatformBundle:accueil.html.twig');
     }
 
     public function addAction(){

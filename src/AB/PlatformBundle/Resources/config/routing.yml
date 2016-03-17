@@ -9,13 +9,13 @@ ab_platform_add:
 ab_platform_delete:
     path:    /platform/delete/{id}
     defaults: {_controller: ABPlatformBundle:Book:delete}
-    requirement:
+    requirements:
         id: \d+
 
 ab_platform_update:
     path:    /platform/update/{id}
     defaults: {_controller: ABPlatformBundle:Book:update}
-    requirement:
+    requirements:
         id: \d+
 
 ab_platform_read:
