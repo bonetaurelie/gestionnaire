@@ -1,7 +1,3 @@
-ab_panier:
-    resource: "@ABPanierBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ab_platform:
     resource: "@ABPlatformBundle/Resources/config/routing.yml"
     prefix:   /platform
