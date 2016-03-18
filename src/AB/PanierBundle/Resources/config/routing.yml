@@ -1,5 +1,5 @@
 ab_panier_ajout:
-    path:     /panier
+    path:     /panier/{id}
     defaults: { _controller: ABPanierBundle:Panier:add }
 
 ab_panier_paiement:
