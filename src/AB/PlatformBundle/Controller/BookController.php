@@ -3,6 +3,7 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
+use AB\PlatformBundle\Entity\BookSearch;
 use AB\PlatformBundle\Form\BookSearchType;
 use AB\PlatformBundle\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -49,19 +50,12 @@ class BookController extends Controller
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été modifié');
             return $this->render('ABPlatformBundle:Book:read.html.twig',array('id'=>$book->getId()));
         }
-        return $this->render('ABPlatformBundle:Book:update.html.twig',array('form'=>$form->createView()));
+        return $this->render('ABPlatformBundle:Book:read.html.twig',array('form'=>$form->createView()));
     }
 
-    public function readAction(Request $request){
-        $form= $this->get('form.factory')->create(new BookSearchType(), $bookSearch);
-        if($form->handleRequest($request)->isValid()){
-            $query= $this->getDoctrine()->getRepository('ABPlatformBundle:Book')->search-($form->getData());
-            $results=$query->getResults();
-            return $this->render('ABPlatformBundle:Book:read.html.twig',array('auteur'=>$bookSearch->getId()));
-        }
-        return $this->render('ABPlatformBundle:Book:read.html.twig',array('form'=>$form->createView()));
-
-
+    public function readAction(){
+        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->findAll();
+        return $this->render('ABPlatformBundle:Book:read.html.twig',array('listBook'=>$listBook));
     }
 
     public function menuAction($limit= 4){
