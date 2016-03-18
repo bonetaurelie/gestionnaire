@@ -23,7 +23,18 @@ class BookController extends Controller
 
     }
 
-    public function deleteAction($id){
+    public function deleteAction($id, Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+        $listBook= $em->getRepository('ABPlatformBundle:Book')->find($id);
+        $em->remove($listBook);
+        $em->flush();
+        if($request->isMethod('GET')) {
+            $request->getSession()->getFlashBag()->add('notice', 'le livre sélectionné a bien été supprimé');
+            return $this->redirectToRoute('ab_platform_read');
+        }
+
+        return $this->render('ABPlatformBundle:Book:read.html.twig',array('listBook'=>$listBook));
     }
 
     public function updateAction($id, Request $request){
