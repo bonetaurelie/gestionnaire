@@ -19,6 +19,7 @@ class PanierType extends AbstractType
             ->add('auteur')
             ->add('prix')
             ->add('quantite')
+            ->add('save','submit')
         ;
     }
     
