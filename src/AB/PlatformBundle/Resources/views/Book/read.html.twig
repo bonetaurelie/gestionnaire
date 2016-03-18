@@ -5,9 +5,8 @@
 {% endblock %}
 
 {% block body %}
-<h1>Livres disponibles à l'achat:</h1>
     <ul>
-    {% for book in listBook %}
+    {% for book in bookSearch %}
         <li>
             {{ book.titre|upper }}, {{ book.auteur }}<br/>
             Prix: {{ book.prix }}€<br/>
