@@ -3,6 +3,7 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
+use AB\PlatformBundle\Entity\Panier;
 use AB\PlatformBundle\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -66,16 +67,22 @@ class BookController extends Controller
     }
 
     public  function ajoutAction($id,Request $request){
-        $panier= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+        $em= $this->getDoctrine()->getManager();
+        $panier=$em->getRepository('ABPlatformBundle:Book')->find($id);
 
         $form=$this->get('form.factory')->create(new BookType(), $panier);
         if($form->handleRequest($request)->isValid()){
+            $panier= new Panier();
             $em=$this->getDoctrine()->getManager();
-            $em->persist($panier);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
             return $this->redirectToRoute('ab_platform_panier',array('id'=>$panier->getId()));
         }
         return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('form'=>$form->createView()));
+    }
+
+    public function achatBook(){
+        $query=$this->em->createQuery('UPDATE book SET b.quantite_dispo=b.quantite_dispo-p.quantite_dispo WHERE id=:id');
+        $query->execute();
     }
 }
