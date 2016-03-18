@@ -66,4 +66,18 @@ class BookController extends Controller
             0);
         return $this->render('ABPlatformBundle:Book:menu.html.twig',array('listBook'=>$listBook));
     }
+
+    public  function ajoutAction($id, Request $request){
+        $panier= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+
+        $form=$this->get('form.factory')->create(new BookType(), $panier);
+        if($form->handleRequest($request)->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($panier);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
+            return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('id'=>$panier->getId()));
+        }
+        return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('form'=>$form->createView()));
+    }
 }
