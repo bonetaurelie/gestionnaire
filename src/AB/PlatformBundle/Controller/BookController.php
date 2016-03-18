@@ -3,6 +3,7 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
+use AB\PlatformBundle\Form\BookSearchType;
 use AB\PlatformBundle\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,9 +52,16 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:update.html.twig',array('form'=>$form->createView()));
     }
 
-    public function readAction(){
-        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->findAll();
-        return $this->render('ABPlatformBundle:Book:read.html.twig',array('listBook'=>$listBook));
+    public function readAction(Request $request){
+        $form= $this->get('form.factory')->create(new BookSearchType(), $bookSearch);
+        if($form->handleRequest($request)->isValid()){
+            $query= $this->getDoctrine()->getRepository('ABPlatformBundle:Book')->search-($form->getData());
+            $results=$query->getResults();
+            return $this->render('ABPlatformBundle:Book:read.html.twig',array('auteur'=>$bookSearch->getId()));
+        }
+        return $this->render('ABPlatformBundle:Book:read.html.twig',array('form'=>$form->createView()));
+
+
     }
 
     public function menuAction($limit= 4){
