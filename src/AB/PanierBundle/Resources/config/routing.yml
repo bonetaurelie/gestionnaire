@@ -1,3 +1,3 @@
-ab_panier_panier:
+ab_panier_ajout:
     path:     /panier
     defaults: { _controller: ABPanierBundle:Panier:add }
