@@ -6,7 +6,7 @@
 
 {% block body %}
     <ul>
-    {% for book in bookSearch %}
+    {% for book in listBook %}
         <li>
             {{ book.titre|upper }}, {{ book.auteur }}<br/>
             Prix: {{ book.prix }}€<br/>
