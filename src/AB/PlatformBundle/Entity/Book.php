@@ -25,7 +25,7 @@ class Book
      * @var string
      *
      * @ORM\Column(name="titre", type="text", unique=false)
-     * @Assert\Length(min=10)
+     *
      */
     private $titre;
 
@@ -33,7 +33,7 @@ class Book
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
-     * @Assert\Length(min=10)
+     *
      */
     private $auteur;
 
@@ -41,7 +41,7 @@ class Book
      * @var float
      *
      * @ORM\Column(name="prix", type="float")
-     * @Assert\Range(min=1)
+     *
      */
     private $prix;
 
@@ -49,7 +49,7 @@ class Book
      * @var int
      *
      * @ORM\Column(name="quantite_dispo", type="integer")
-     * @Assert\Range(min=1)
+     *
      */
     private $quantiteDispo;
 
@@ -57,6 +57,7 @@ class Book
      * @var date
      *
      * @ORM\Column(name="date", type="date")
+     * 
      */
     private $date;
 
