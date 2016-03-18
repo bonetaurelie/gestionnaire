@@ -70,6 +70,15 @@ class BookController extends Controller
     public  function ajoutAction($id, Request $request){
         $panier= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
 
+        if($quantiteDisp===null){
+            $request->getSession()->getFlashBag()->add('notice','Il n\'est plus possible de passer commander pour ce livre');
+            return $this->redirectToRoute('ab_platform_panier');
+        }
+        elseif($quantite>$quantiteDispo){
+            $request->getSession()->getFlashBag()->add('notice','Ce nombre est supérieur à la quantité disponible');
+            return $this->redirectToRoute('ab_platform_panier');
+        }
+
         $form=$this->get('form.factory')->create(new BookType(), $panier);
         if($form->handleRequest($request)->isValid()){
             $em=$this->getDoctrine()->getManager();
