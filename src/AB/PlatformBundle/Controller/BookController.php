@@ -73,16 +73,11 @@ class BookController extends Controller
         $form=$this->get('form.factory')->create(new BookType(), $panier);
         if($form->handleRequest($request)->isValid()){
             $panier= new Panier();
-            $em=$this->getDoctrine()->getManager();
+            $em=$this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->achatBook();
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
             return $this->redirectToRoute('ab_platform_panier',array('id'=>$panier->getId()));
         }
         return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('form'=>$form->createView()));
-    }
-
-    public function achatBook(){
-        $query=$this->em->createQuery('UPDATE book SET b.quantite_dispo=b.quantite_dispo-p.quantite_dispo WHERE id=:id');
-        $query->execute();
     }
 }
