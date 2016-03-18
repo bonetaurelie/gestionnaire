@@ -19,5 +19,5 @@ ab_platform_read:
     defaults: {_controller: ABPlatformBundle:Book:read}
 
 ab_platform_panier:
-    path:    /panier
+    path:    /panier/{id}
     defaults: {_controller: ABPlatformBundle:Panier:ajout}
