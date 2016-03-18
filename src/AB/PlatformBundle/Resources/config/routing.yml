@@ -17,3 +17,7 @@ ab_platform_update:
 ab_platform_read:
     path:    /read
     defaults: {_controller: ABPlatformBundle:Book:read}
+
+ab_platform_panier:
+    path:    /panier
+    defaults: {_controller: ABPlatformBundle:Panier:ajout}
