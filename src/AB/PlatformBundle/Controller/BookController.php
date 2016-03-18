@@ -3,8 +3,6 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
-use AB\PlatformBundle\Entity\BookSearch;
-use AB\PlatformBundle\Form\BookSearchType;
 use AB\PlatformBundle\Form\BookType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,17 +38,17 @@ class BookController extends Controller
     }
 
     public function updateAction($id, Request $request){
-        $book= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
 
-        $form=$this->get('form.factory')->create(new BookType(), $book);
+        $form=$this->get('form.factory')->create(new BookType(), $listBook);
         if($form->handleRequest($request)->isValid()){
             $em=$this->getDoctrine()->getManager();
-            $em->persist($book);
+            $em->persist($listBook);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été modifié');
-            return $this->render('ABPlatformBundle:Book:read.html.twig',array('id'=>$book->getId()));
+            return $this->redirectToRoute('ab_platform_read',array('id'=>$listBook->getId()));
         }
-        return $this->render('ABPlatformBundle:Book:read.html.twig',array('form'=>$form->createView()));
+        return $this->render('ABPlatformBundle:Book:update.html.twig',array('form'=>$form->createView()));
     }
 
     public function readAction(){
@@ -76,7 +74,7 @@ class BookController extends Controller
             $em->persist($panier);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
-            return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('id'=>$panier->getId()));
+            return $this->redirectToRoute('ab_platform_panier',array('id'=>$panier->getId()));
         }
         return $this->render('ABPlatformBundle:Panier:panier.html.twig',array('form'=>$form->createView()));
     }
