@@ -9,8 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="book")
  * @ORM\Entity(repositoryClass="AB\PlatformBundle\Repository\BookRepository")
- * @ORM\ManyToOne(targetEntity="Panier", inversedBy="books", cascade={"remove"})
- * @OMR\JoinColum(name="id_panier", referencedColumnName="id")
+ *
  */
 class Book
 {
@@ -62,8 +61,6 @@ class Book
      *
      */
     private $date;
-
-    protected $panier;
 
     public function __construct()
     {

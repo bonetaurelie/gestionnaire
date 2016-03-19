@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="panier")
  * @ORM\Entity(repositoryClass="AB\PlatformBundle\Repository\PanierRepository")
- * @ORM\OneToMany(targetEntity="Book",mappedBy="panier", cascade={"remove", "persist"})
  */
 class Panier
 {
@@ -49,8 +48,6 @@ class Panier
      * @ORM\Column(name="quantite", type="integer")
      */
     private $quantite;
-
-    protected $books;
 
     /**
      * Get id
