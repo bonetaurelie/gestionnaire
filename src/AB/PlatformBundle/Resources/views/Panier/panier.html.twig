@@ -44,6 +44,7 @@
     <div class="col-md-offset-6">
         {{ form_widget(form.save, {'attr': {'class': 'btn-primary'}}) }}
     </div>
+    <a class="btn-primary" href="{{ path('ab_paltform_read') }}">retour à la liste</a>
 
     {{ form_rest(form) }}
     {{ form_end(form) }}
