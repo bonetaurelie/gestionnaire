@@ -18,7 +18,7 @@ class PanierType extends AbstractType
             ->add('titre')
             ->add('auteur')
             ->add('prix')
-            ->add('quantite')
+            ->add('quantiteDispo')
             ->add('save','submit')
         ;
     }
@@ -29,7 +29,7 @@ class PanierType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AB\PlatformBundle\Entity\Panier'
+            'data_class' => 'AB\PlatformBundle\Entity\Book'
         ));
     }
 }
