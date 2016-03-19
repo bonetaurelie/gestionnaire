@@ -1,0 +1,13 @@
+{% extends 'ABPlatformBundle::layout.html.twig' %}
+
+{% block title %}
+    Votre Panier - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>Votre panier avant paiement de votre commande:</h1>
+    {{ book.titre|upper }}, {{ book.auteur }}<br/>
+    Prix: {{ book.prix }}€<br/>
+    Quantité : {{ book.quantite }}<br/><br/>
+    <a class="btn-danger btn-lg" href="{{ path('ab_platform_read') }}">Annuler panier</a>
+{% endblock %}
