@@ -66,12 +66,14 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:menu.html.twig',array('listBook'=>$listBook));
     }
 
-    public  function ajoutAction($id,$titre,$auteur,$prix,Request $request){
-        $panier=$this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+    public  function ajoutAction($id)
+    {
+        $listBook = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+            return $this->redirectToRoute('ab_platform_panier',array('id'=>$listBook->getId()));
+    }
 
-        $panier->setTitre($titre);
-        $panier->setAuteur($auteur);
-        $panier->setPrix($prix);
+    public function updatePanier(){
+
         $form=$this->get('form.factory')->create(new BookType(), $panier);
         if($form->handleRequest($request)->isValid()){
             $em=$this->getDoctrine()->getManager();
