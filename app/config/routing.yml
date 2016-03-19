@@ -6,7 +6,5 @@ ab_core:
     resource: "@ABCoreBundle/Resources/config/routing.yml"
     prefix:   /
 
-sylius_inventory:
-    resource: "@SyliusInventoryBundle/Resources/config/routing.yml"
 
 

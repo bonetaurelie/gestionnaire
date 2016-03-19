@@ -65,13 +65,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-#Stylius inventory
-sylius_inventory:
-    driver: doctrine/orm
-    backorders: true
-    classes:
-        unit:
-            model: App\AppBundle\Entity\InventoryUnit
-        stockable:
-            model: App\AppBundle\Entity\Book
