@@ -5,29 +5,27 @@ namespace AB\PlatformBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Book
+ * Panier
  *
- * @ORM\Table(name="book")
- * @ORM\Entity(repositoryClass="AB\PlatformBundle\Repository\BookRepository")
- * @ORM\ManyToOne(targetEntity="Panier", inversedBy="books", cascade={"remove"})
- * @OMR\JoinColum(name="id_panier", referencedColumnName="id")
+ * @ORM\Table(name="panier")
+ * @ORM\Entity(repositoryClass="AB\PlatformBundle\Repository\PanierRepository")
+ * @ORM\OneToMany(targetEntity="Book",mappedBy="panier", cascade={"remove", "persist"})
  */
-class Book
+class Panier
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="id", type="integer")
+     * @ORM\Column(name="id_panier", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    private $idPanier;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="titre", type="text", unique=false)
-     *
+     * @ORM\Column(name="titre", type="text")
      */
     private $titre;
 
@@ -35,7 +33,6 @@ class Book
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
-     *
      */
     private $auteur;
 
@@ -43,48 +40,33 @@ class Book
      * @var float
      *
      * @ORM\Column(name="prix", type="float")
-     *
      */
     private $prix;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="quantite_dispo", type="integer")
-     *
+     * @ORM\Column(name="quantite", type="integer")
      */
-    private $quantiteDispo;
+    private $quantite;
 
-    /**
-     * @var date
-     *
-     * @ORM\Column(name="date", type="date")
-     *
-     */
-    private $date;
-
-    protected $panier;
-
-    public function __construct()
-    {
-        $this->date= new \DateTime();
-    }
+    protected $books;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
+    public function getIdPanier()
     {
-        return $this->id;
+        return $this->idPanier;
     }
 
     /**
      * Set titre
      *
      * @param string $titre
-     * @return Book
+     * @return Panier
      */
     public function setTitre($titre)
     {
@@ -107,7 +89,7 @@ class Book
      * Set auteur
      *
      * @param string $auteur
-     * @return Book
+     * @return Panier
      */
     public function setAuteur($auteur)
     {
@@ -130,7 +112,7 @@ class Book
      * Set prix
      *
      * @param float $prix
-     * @return Book
+     * @return Panier
      */
     public function setPrix($prix)
     {
@@ -150,48 +132,25 @@ class Book
     }
 
     /**
-     * Set quantiteDispo
+     * Set quantite
      *
-     * @param integer $quantiteDispo
-     * @return Book
+     * @param integer $quantite
+     * @return Panier
      */
-    public function setQuantiteDispo($quantiteDispo)
+    public function setQuantite($quantite)
     {
-        $this->quantiteDispo = $quantiteDispo;
+        $this->quantite = $quantite;
 
         return $this;
     }
 
     /**
-     * Get quantiteDispo
+     * Get quantite
      *
      * @return integer 
      */
-    public function getQuantiteDispo()
+    public function getQuantite()
     {
-        return $this->quantiteDispo;
-    }
-
-    /**
-     * Set date
-     *
-     * @param date $date
-     * @return Book
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return date
-     */
-    public function getDate()
-    {
-        return $this->Date;
+        return $this->quantite;
     }
 }
