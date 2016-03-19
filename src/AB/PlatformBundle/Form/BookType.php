@@ -19,7 +19,7 @@ class BookType extends AbstractType
             ->add('auteur')
             ->add('prix')
             ->add('quantiteDispo')
-            ->add('save','submit')
+            ->add('valider','submit')
         ;
     }
     
@@ -29,7 +29,7 @@ class BookType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AB\PlatformBundle\Entity\Book'
+
         ));
     }
 }
