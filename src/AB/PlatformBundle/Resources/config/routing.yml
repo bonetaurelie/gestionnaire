@@ -25,7 +25,7 @@ ab_platform_selection:
         id: \d*
 
 ab_platform_panier:
-    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantite}
+    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantiteDispo}
     defaults: {_controller: ABPlatformBundle:Book:updatepanier}
     requirements:
         id: \d*
