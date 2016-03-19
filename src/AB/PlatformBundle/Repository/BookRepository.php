@@ -12,9 +12,5 @@ use Doctrine\ORM\EntityRepository;
  */
 class BookRepository extends EntityRepository
 {
-    public function achatBook()
-    {
-        $query = $this->em->createQuery('UPDATE book SET b.quantite_dispo=b.quantite_dispo-p.quantite_dispo WHERE id=:id');
-        $query->execute();
-    }
+
 }

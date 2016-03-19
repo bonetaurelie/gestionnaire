@@ -19,7 +19,7 @@ ab_platform_read:
     defaults: {_controller: ABPlatformBundle:Book:read}
 
 ab_platform_panier:
-    path:    /panier/{id}
+    path:    /panier/{id}/{titre}/{auteur}/{prix}
     defaults: {_controller: ABPlatformBundle:Book:ajout}
     requirements:
         id: \d*
