@@ -2,6 +2,7 @@
 
 namespace AB\PlatformBundle\Entity;
 
+use Sylius\Bundle\InventoryBundle\Model\StockableInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="book")
  * @ORM\Entity(repositoryClass="AB\PlatformBundle\Repository\BookRepository")
  */
-class Book
+class Book implements StockableInterface
 {
     /**
      * @var int
@@ -28,6 +29,15 @@ class Book
      *
      */
     private $titre;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer")
+     *
+     */
+
+    private $onHand;
 
     /**
      * @var string
@@ -64,6 +74,7 @@ class Book
     public function __construct()
     {
         $this->date= new \DateTime();
+        $this->onHand=1;
     }
 
     /**
@@ -97,6 +108,16 @@ class Book
     public function getTitre()
     {
         return $this->titre;
+    }
+
+    public function getOnHand()
+    {
+        return $this->onHand;
+    }
+
+    public function setOnHand($onHand)
+    {
+        $this->onHand = $onHand;
     }
 
     /**
