@@ -8,7 +8,7 @@
     <h1>Voici votre sélection:</h1>
         {{ book.titre|upper }}, {{ book.auteur }}<br/>
         Prix: {{ book.prix }}€<br/>
-        Quantité: {{ book.quantiteDispo }}<br/><br/>
-    <a class="btn-warning btn-lg" href="{{ path('ab_platform_read') }}">Continuer ma sélection</a>
+        Quantité disponible: {{ book.quantiteDispo }}<br/><br/>
+    <a class="btn-danger btn-lg" href="{{ path('ab_platform_read') }}">Annuler ma sélection</a>
     <a class="btn-primary btn-lg" href="{{ path('ab_platform_panier',{'id':book.id}) }}">Se rendre au panier</a>
 {% endblock %}
