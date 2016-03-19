@@ -1,0 +1,18 @@
+{% extends 'ABPlatformBundle::layout.html.twig' %}
+
+{% block title %}
+    Votre sélection - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Voici votre sélection: </h1>
+    <ul>
+        {% for book in listBook %}
+            <li>
+    {{ book.titre|upper }},{{ book.auteur }}
+    Prix: {{ book.prix }} €
+    Quantité dispo:{{ book.quantiteDispo }}
+            </li>
+            {% endfor %}
+    </ul>
+{% endblock %}
