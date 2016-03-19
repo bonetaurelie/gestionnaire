@@ -10,5 +10,5 @@
         Prix: {{ book.prix }}€<br/>
         Quantité disponible: {{ book.quantiteDispo }}<br/><br/>
     <a class="btn-danger btn-lg" href="{{ path('ab_platform_read') }}">Annuler ma sélection</a>
-    <a class="btn-primary btn-lg" href="{{ path('ab_platform_panier',{'id':book.id}) }}">Se rendre au panier</a>
+    <a class="btn-primary btn-lg" href="{{ path('ab_platform_panier',{'id':book.id,'titre':book.titre,'auteur':book.auteur, 'prix':book.prix, 'quantite':book.quantite}) }}">Se rendre au panier</a>
 {% endblock %}
