@@ -41,10 +41,10 @@
         </div>
     </div>
     <div class="col-md-offset-6">
-        {{ form_widget(form.save, {'attr': {'class': 'btn-primary'}}) }}
+        {{ form_widget(form.save, {'attr': {'class': 'btn-primary btn-lg'}}) }}
+        <a class="btn-danger btn-lg col-md-offset-1" href="{{ path('ab_platform_read') }}">Annuler</a>
     </div>
 
-    <a class="btn-primary" href="{{ path('ab_paltform_read') }}">retour à la liste</a>
 
     {{ form_rest(form) }}
     {{ form_end(form) }}
