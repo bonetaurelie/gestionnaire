@@ -18,8 +18,14 @@ ab_platform_read:
     path:    /read
     defaults: {_controller: ABPlatformBundle:Book:read}
 
-ab_platform_panier:
-    path:    /panier/{id}/{titre}/{auteur}/{prix}
+ab_platform_selection:
+    path:    /selection/{id}
     defaults: {_controller: ABPlatformBundle:Book:ajout}
+    requirements:
+        id: \d*
+
+ab_platform_panier:
+    path:    /panier/{id}
+    defaults: {_controller: ABPlatformBundle:Book:updatepanier}
     requirements:
         id: \d*
