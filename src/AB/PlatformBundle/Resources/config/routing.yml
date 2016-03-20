@@ -25,13 +25,13 @@ ab_platform_selection:
         id: \d*
 
 ab_platform_panier:
-    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantiteDispo}
+    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantite}
     defaults: {_controller: ABPlatformBundle:Book:updatepanier}
     requirements:
         id: \d*
 
 ab_platform_validation:
-    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantite}
+    path:    /validation/{id}/{titre}/{auteur}/{prix}/{quantite}
     defaults: {_controller: ABPlatformBundle:Book:validation}
     requirements:
         id: \d*
