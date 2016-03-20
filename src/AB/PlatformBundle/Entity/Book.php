@@ -189,6 +189,6 @@ class Book
      */
     public function getDate()
     {
-        return $this->Date;
+        return $this->date;
     }
 }

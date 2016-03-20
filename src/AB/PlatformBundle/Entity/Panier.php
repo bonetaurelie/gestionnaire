@@ -50,6 +50,19 @@ class Panier
     private $quantite;
 
     /**
+     * @var date
+     *
+     * @ORM\Column(name="date", type="datetime")
+     *
+     */
+    private $date;
+
+    public function __construct()
+    {
+        $this->date= new \DateTime();
+    }
+
+    /**
      * Get id
      *
      * @return integer 
@@ -146,8 +159,32 @@ class Panier
      *
      * @return integer 
      */
+
     public function getQuantite()
     {
         return $this->quantite;
+    }
+
+    /**
+     * Set date
+     *
+     * @param date $date
+     * @return Book
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return date
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }
