@@ -117,7 +117,7 @@ class BookController extends Controller
     }
 
     public function clientAction(){
-
+        return $this->render('ABPlatformBundle:Book:blient.html.twig');
     }
 
 }
