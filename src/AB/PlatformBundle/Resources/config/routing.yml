@@ -32,10 +32,10 @@ ab_platform_panier:
 
 ab_platform_validation:
     path:    /validation/{id}
-    defaults: {_controller: ABPlatformBundle:Panier:validation}
+    defaults: {_controller: ABPlatformBundle:Book:validation}
     requirements:
         id: \d*
 
 ab_platform_compte:
     path:    /compte
-    default: {-controller: ABPlatformBundle:Panier:compteAction}
+    defaults: {_controller: ABPlatformBundle:Book:compteAction}
