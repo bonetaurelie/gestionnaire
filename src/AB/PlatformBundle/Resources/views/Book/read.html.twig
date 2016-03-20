@@ -10,7 +10,7 @@
         <li>
             {{ book.titre|upper }}, {{ book.auteur }}<br/>
             Prix: {{ book.prix }}€<br/>
-            Quantité: {{ book.quantiteDispo }}
+            Quantité: {{ book.quantite }}
         </li>
         <a class="btn btn-primary btn-md" href="{{ path('ab_core_accueil') }}">Accueil</a>
         <a class="btn btn-warning btn-md" href="{{ path('ab_platform_update',{'id':book.id}) }}">Modifier le livre</a>
