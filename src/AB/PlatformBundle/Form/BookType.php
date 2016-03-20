@@ -18,7 +18,7 @@ class BookType extends AbstractType
             ->add('titre')
             ->add('auteur')
             ->add('prix')
-            ->add('quantiteDispo')
+            ->add('quantite')
             ->add('valider','submit')
         ;
     }
@@ -28,8 +28,7 @@ class BookType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
 
-        ));
+
     }
 }
