@@ -38,4 +38,12 @@ ab_platform_validation:
 
 ab_platform_compte:
     path:    /compte
-    defaults: {_controller: ABPlatformBundle:Book:compteAction}
+    defaults: {_controller: ABPlatformBundle:Book:compte}
+
+ab_platform_nouveau/client:
+    path:    /nouveauClient
+    defaults: {_controller: ABPlatformBundle:Book:nouveauClient}
+
+ab_platform_client:
+    path:    /client
+    defaults: {_controller: ABPlatformBundle:Book:client}
