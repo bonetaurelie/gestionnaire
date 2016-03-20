@@ -17,6 +17,7 @@ class ClientType extends AbstractType
         $builder
             ->add('pseudo')
             ->add('password')
+            ->add('valider','submit')
         ;
     }
     
