@@ -87,13 +87,13 @@ class BookController extends Controller
             $em->persist($panier);
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
-            return $this->redirectToRoute('ab_platform_validation',array('id'=>$panier->getId(),'titre'=>$panier->getTitre(),'auteur'=>$panier->getAuteur(),'prix'=>$panier->getPrix(), 'quantite'=>$panier->getQuantite()));
+            return $this->redirectToRoute('ab_platform_validation',array('id'=>$id,'titre'=>$panier->getTitre(),'auteur'=>$panier->getAuteur(),'prix'=>$panier->getPrix(), 'quantite'=>$quantite));
         }
         return $this->render('ABPlatformBundle:Book:panier.html.twig',array('form'=>$form->createView()));
     }
 
     public function validationAction(){
-
+        return $this->render('ABPlatformBundle:Book:validation.html.twig');
     }
 
 }
