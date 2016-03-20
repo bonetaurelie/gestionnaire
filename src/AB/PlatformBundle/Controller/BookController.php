@@ -3,8 +3,10 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
+use AB\PlatformBundle\Entity\Client;
 use AB\PlatformBundle\Entity\Panier;
 use AB\PlatformBundle\Form\BookType;
+use AB\PlatformBundle\Form\ClientType;
 use AB\PlatformBundle\Form\PanierType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -101,8 +103,17 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:compte.html.twig');
     }
 
-    public function nouveauClientAction(){
-
+    public function nouveauClientAction(Request $request){
+        $nvClient= new Client();
+        $form= $this->get('form.factory')->create(new ClientType(),$nvClient);
+        if($form->handleRequest($request)->isValid()){
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($nvClient);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice','Vous avez bien été enregistré comme nouveau client');
+            return $this->redirectToRoute('ab_platform_client',array('id'=>$nvClient->getId()));
+        }
+        return $this->render('ABPlatformBundle:Book:nouveauClient.html.twig',array('form'=>$form->createView()));
     }
 
     public function clientAction(){

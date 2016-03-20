@@ -41,9 +41,9 @@ ab_platform_compte:
     defaults: {_controller: ABPlatformBundle:Book:compte}
 
 ab_platform_nouveau/client:
-    path:    /nouveauClient
+    path:    /compte/nouveauClient
     defaults: {_controller: ABPlatformBundle:Book:nouveauClient}
 
 ab_platform_client:
-    path:    /client
+    path:    /compte/client
     defaults: {_controller: ABPlatformBundle:Book:client}
