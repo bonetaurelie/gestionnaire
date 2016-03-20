@@ -97,4 +97,16 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:validation.html.twig',array('book'=>$book));
     }
 
+    public function compteAction(){
+        return $this->render('ABPlatformBundle:Book:compte.html.twig');
+    }
+
+    public function nouveauClientAction(){
+
+    }
+
+    public function clientAction(){
+
+    }
+
 }
