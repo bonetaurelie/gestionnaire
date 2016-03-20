@@ -49,10 +49,10 @@ class Book
     /**
      * @var int
      *
-     * @ORM\Column(name="quantite_dispo", type="integer")
+     * @ORM\Column(name="quantite", type="integer")
      *
      */
-    private $quantiteDispo;
+    private $quantite;
 
     /**
      * @var date
@@ -152,9 +152,9 @@ class Book
      * @param integer $quantiteDispo
      * @return Book
      */
-    public function setQuantiteDispo($quantiteDispo)
+    public function setQuantite($quantite)
     {
-        $this->quantiteDispo = $quantiteDispo;
+        $this->quantite = $quantite;
 
         return $this;
     }
@@ -164,9 +164,9 @@ class Book
      *
      * @return integer 
      */
-    public function getQuantiteDispo()
+    public function getQuantite()
     {
-        return $this->quantiteDispo;
+        return $this->quantite;
     }
 
     /**
