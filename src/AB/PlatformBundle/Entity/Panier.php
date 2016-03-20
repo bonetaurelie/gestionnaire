@@ -15,11 +15,11 @@ class Panier
     /**
      * @var int
      *
-     * @ORM\Column(name="id_panier", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $idPanier;
+    private $id;
 
     /**
      * @var string
@@ -50,7 +50,7 @@ class Panier
     private $quantite;
 
     /**
-     * @var date
+     * @var \Datetime
      *
      * @ORM\Column(name="date", type="datetime")
      *
@@ -67,9 +67,9 @@ class Panier
      *
      * @return integer 
      */
-    public function getIdPanier()
+    public function getId()
     {
-        return $this->idPanier;
+        return $this->id;
     }
 
     /**
@@ -165,11 +165,13 @@ class Panier
         return $this->quantite;
     }
 
+    
+
     /**
      * Set date
      *
-     * @param date $date
-     * @return Book
+     * @param \DateTime $date
+     * @return Panier
      */
     public function setDate($date)
     {
@@ -181,7 +183,7 @@ class Panier
     /**
      * Get date
      *
-     * @return date
+     * @return \DateTime 
      */
     public function getDate()
     {
