@@ -92,8 +92,9 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:panier.html.twig',array('form'=>$form->createView()));
     }
 
-    public function validationAction(){
-        return $this->render('ABPlatformBundle:Book:validation.html.twig');
+    public function validationAction($id){
+        $book = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->find($id);
+        return $this->render('ABPlatformBundle:Book:validation.html.twig',array('book'=>$book));
     }
 
 }
