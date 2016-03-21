@@ -1,0 +1,35 @@
+{% extends 'ABPlatformBundle::layout.html.twig' %}
+
+{% block title %}
+   Connexion àl'espace client - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <h1>Connexion à l'espace client:</h1>
+    {{ form_start(form, {'attr':{'class':'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.pseudo, 'Votre pseudo', {'label_attr':{'class':'col-md-3 control-label'}}) }}
+        {{ form_errors(form.pseudo) }}
+        <div class="col-md-4">
+            {{ form_widget(form.pseudo, {'attr': {'class':'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.password, 'Votre mot de passe', {'label_attr':{'class':'col-md-3 control-label'}}) }}
+        {{ form_errors(form.password) }}
+        <div class="col-md-4">
+            {{ form_widget(form.password, {'attr': {'class':'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="col-md-offset-3">
+        {{ form_widget(form.valider, {'attr': {'class':'btn-primary btn-lg'}}) }}
+        <a class="btn-danger btn-lg col-md-offset-1" href="{{ path('ab_platform_read') }}">Annuler</a>
+    </div>
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
