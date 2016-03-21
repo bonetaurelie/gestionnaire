@@ -31,7 +31,7 @@ ab_platform_panier:
         id: \d*
 
 ab_platform_validation:
-    path:    /validation/{id}
+    path:    /validation/{id}/{titre}
     defaults: {_controller: ABPlatformBundle:Book:validation}
     requirements:
         id: \d*
