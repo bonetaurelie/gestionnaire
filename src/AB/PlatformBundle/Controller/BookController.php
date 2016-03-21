@@ -108,12 +108,8 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:compte.html.twig');
     }
 
-    public function nouveauClientAction(){
-
-    }
-
-    public function clientAction(){
-        return $this->render('ABPlatformBundle:Book:blient.html.twig');
+    public function paiementAction(){
+        return $this->render('ABPlatformBundle:Book:paiement.html.twig');
     }
 
 }
