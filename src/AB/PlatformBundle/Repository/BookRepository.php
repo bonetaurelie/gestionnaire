@@ -12,10 +12,4 @@ use Doctrine\ORM\EntityRepository;
  */
 class BookRepository extends EntityRepository
 {
-    /*public function getachatBook($quantiteDispo){
-        $qb=$this->createQueryBuilder('b');
-        $qb->where('b.quantite_dispo < :quantite_dispo')
-            ->setParameter('quantite_dispo','b.quantite_dispo'-$quantiteDispo);
-        return $qb->getQuery()->getResult();
-    }*/
 }
