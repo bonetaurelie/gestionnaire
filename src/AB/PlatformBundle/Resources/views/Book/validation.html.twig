@@ -6,9 +6,15 @@
 
 {% block body %}
     <h1>Votre panier avant paiement de votre commande:</h1>
+    <ul>
+        {% for book in listBook %}
+        <li>
     {{ book.titre|upper }}, {{ book.auteur }}<br/>
     Prix: {{ book.prix }}€<br/>
     Quantité : {{ book.quantite }}<br/><br/>
     <a class="btn-danger btn-lg" href="{{ path('ab_platform_read') }}">Annuler panier</a>
     <a class="btn-primary btn-lg" href="{{ path('ab_platform_compte') }}">Accéder au paiement</a>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
