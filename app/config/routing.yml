@@ -12,7 +12,7 @@ ab_core:
 
 login:
     pattern: /login
-    defaults: {_controller: "ABUserBundle:Security:login}
+    defaults: {_controller: ABUserBundle:Security:login}
 
 login_check:
     pattern: /login_check
