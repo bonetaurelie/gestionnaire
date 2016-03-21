@@ -7,8 +7,8 @@
         <div class="alert alert-{{ key }}">
             {% for message in messages %}
             {{ message|trans({}, 'FOSUserBundle') }}
+                {% endfor %}
         </div>
-            {% endfor %}
     {% endfor %}
 
     {# On définit ce block, dans lequel vont venir s'insérer les autres vues du bundle #}
