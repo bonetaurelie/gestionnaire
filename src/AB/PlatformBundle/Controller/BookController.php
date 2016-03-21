@@ -94,26 +94,22 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:panier.html.twig',array('form'=>$form->createView()));
     }
 
-    public function validationAction($id){
-        $book = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->find($id);
-        return $this->render('ABPlatformBundle:Book:validation.html.twig',array('book'=>$book));
+    public function validationAction($id, $limit=1, $offet=0, $titre){
+        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findBy(
+            array('titre'=>$titre),
+            array('date'=>'DESC'),
+            $limit,
+            $offet
+        );
+        return $this->render('ABPlatformBundle:Book:validation.html.twig',array('listBook'=>$listBook));
     }
 
     public function compteAction(){
         return $this->render('ABPlatformBundle:Book:compte.html.twig');
     }
 
-    public function nouveauClientAction(Request $request){
-        $nvClient= new Client();
-        $form= $this->get('form.factory')->create(new ClientType(),$nvClient);
-        if($form->handleRequest($request)->isValid()){
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($nvClient);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice','Vous avez bien été enregistré comme nouveau client');
-            return $this->redirectToRoute('ab_platform_client',array('id'=>$nvClient->getId()));
-        }
-        return $this->render('ABPlatformBundle:Book:nouveauClient.html.twig',array('form'=>$form->createView()));
+    public function nouveauClientAction(){
+
     }
 
     public function clientAction(){
