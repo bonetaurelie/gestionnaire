@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AB\CoreBundle\ABCoreBundle(),
             new AB\PlatformBundle\ABPlatformBundle(),
             new AB\UserBundle\ABUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
