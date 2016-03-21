@@ -23,6 +23,7 @@ class SecurityController extends Controller
         return $this->render('ABUserBundle:Security:login.html.twig', array(
             'last_username' => $authenticationUtils->getLastUsername(),
             'error'         => $authenticationUtils->getLastAuthenticationError(),
+            'message'=>$messages
         ));
     }
 }
