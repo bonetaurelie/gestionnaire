@@ -43,3 +43,5 @@ ab_platform_compte:
 ab_platform_paiement:
     path:    /paiement
     defaults: {_controller: ABPlatformBundle:Book:paiement}
+    requirements:
+        id: \d*
