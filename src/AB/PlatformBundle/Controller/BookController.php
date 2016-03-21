@@ -109,7 +109,14 @@ class BookController extends Controller
     }
 
     public function paiementAction(){
+        /*$listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findBy(
+            array('titre'=>$titre),
+            array('date'=>'DESC'),
+            $limit,
+            $offet
+        );*/
         return $this->render('ABPlatformBundle:Book:paiement.html.twig');
+
     }
 
 }
