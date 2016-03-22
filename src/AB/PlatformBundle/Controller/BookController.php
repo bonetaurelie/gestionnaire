@@ -71,7 +71,7 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:menu.html.twig',array('listBook'=>$listBook));
     }
 
-    public  function ajoutAction(Request $request, $id,$date)
+    public  function ajoutAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
         $book = $em->getRepository('ABPlatformBundle:Book')->find($id);
@@ -93,30 +93,16 @@ class BookController extends Controller
                 return $this->redirect($this->generateUrl("ab_platform_read"));
             }
             if ($form->get('panier')->isClicked()) {
-                return $this->redirect($this->generateUrl("ab_platform_panier",array('id'=>$id,'date'=>$date)));
+                return $this->redirect($this->generateUrl("ab_platform_panier",array('id'=>$id)));
             }
         }
         return $this->render('ABPlatformBundle:Book:choix.html.twig',array('book'=>$book,'form'=>$form->createView()));
     }
 
-    public function updatePanierAction($id,$date,Request $request){
+    public function updatePanierAction($id, Request $request){
 
-        $panier = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findOneById($date);
-
-        /*$form=$this->get('form.factory')->create(new BookType(), $panier);
-        $panier= new Panier();
-        $panier->setTitre($titre);
-        $panier->setAuteur($auteur);
-        $panier->setPrix($prix);
-        $panier->setQuantite($quantite);
-        if($form->handleRequest($request)->isValid()){
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($panier);
-            $em->flush();
-            $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
-            return $this->redirectToRoute('ab_platform_validation',array('id'=>$id,'titre'=>$panier->getTitre(),'auteur'=>$panier->getAuteur(),'prix'=>$panier->getPrix(), 'quantite'=>$quantite));
-        }*/
-        return $this->render('ABPlatformBundle:Book:panier.html.twig',array('panier'=>$panier/*'form'=>$form->createView()*/));
+        $panier = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->find($id);
+        return $this->render('ABPlatformBundle:Book:panier.html.twig',array('panier'=>$panier));
     }
 
     public function validationAction($id, $limit=1, $offet=0, $titre){
