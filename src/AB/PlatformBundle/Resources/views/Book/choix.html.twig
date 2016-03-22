@@ -9,6 +9,11 @@
         {{ book.titre|upper }}, {{ book.auteur }}<br/>
         Prix: {{ book.prix }}€<br/>
         Quantité disponible: {{ book.quantite }}<br/><br/>
-    <a class="btn-danger btn-lg" href="{{ path('ab_platform_read') }}">Annuler ma sélection</a>
-    <a class="btn-primary btn-lg" href="{{ path('ab_platform_panier',{'id':book.id,'titre':book.titre,'auteur':book.auteur,'prix':book.prix,'quantite':book.quantite}) }}">Se rendre au panier</a>
+    <p>Combien en voulez-vous ?</p>
+    {{ form_start(form) }}
+    {{ form_widget(form.quantite, {'attr':{'max': book.quantite,'min': 0} }) }} <br/><br/>
+    {{ form_widget(form.menu, { 'label': 'Enregistrer pour plus tard et retourner à l\'accueil'}) }}
+    {{ form_widget(form.panier, { 'label': 'Se rendre au panier'}) }}
+    {{ form_end(form) }}
+
 {% endblock %}
