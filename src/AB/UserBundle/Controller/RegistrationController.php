@@ -52,31 +52,11 @@ class RegistrationController extends Controller
 
             $userManager->updateUser($user);
 
-            if (null === $response = $event->getResponse()) {
-                $url = $this->render('ABUserBundle:Register:confirmed.html.twig');
-                $response = new RedirectResponse($url);
-            }
-
-            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
-
-            return $response;
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
-
         return $this->render('ABUserBundle:Register:register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
 
-    public function confirmedAction()
-    {
-        $user = $this->getUser();
-        if (!is_object($user) || !$user instanceof UserInterface) {
-            throw new AccessDeniedException('This user does not have access to this section.');
-        }
-
-        return $this->render('ABUserBundle:Register:confirmed.html.twig', array(
-            'user' => $user,
-            'targetUrl' => $this->getTargetUrlFromSession(),
-        ));
-    }
 }
