@@ -62,9 +62,15 @@ class Book
      */
     private $date;
 
+    /**
+     * @ORM\OneToMany(targetEntity="BookPanier", mappedBy="book")
+     */
+    private $paniers;
+
     public function __construct()
     {
         $this->date= new \DateTime();
+        $this->paniers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -190,5 +196,38 @@ class Book
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Add paniers
+     *
+     * @param \AB\PlatformBundle\Entity\BookPanier $paniers
+     * @return Book
+     */
+    public function addPanier(\AB\PlatformBundle\Entity\BookPanier $paniers)
+    {
+        $this->paniers[] = $paniers;
+
+        return $this;
+    }
+
+    /**
+     * Remove paniers
+     *
+     * @param \AB\PlatformBundle\Entity\BookPanier $paniers
+     */
+    public function removePanier(\AB\PlatformBundle\Entity\BookPanier $paniers)
+    {
+        $this->paniers->removeElement($paniers);
+    }
+
+    /**
+     * Get paniers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPaniers()
+    {
+        return $this->paniers;
     }
 }
