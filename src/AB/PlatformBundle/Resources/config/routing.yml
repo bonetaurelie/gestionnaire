@@ -19,13 +19,13 @@ ab_platform_read:
     defaults: {_controller: ABPlatformBundle:Book:read}
 
 ab_platform_selection:
-    path:    /selection/{id}
+    path:    /selection/{id}/{date}
     defaults: {_controller: ABPlatformBundle:Book:ajout}
     requirements:
         id: \d*
 
 ab_platform_panier:
-    path:    /panier/{id}/{titre}/{auteur}/{prix}/{quantite}
+    path:    /panier/{id}/{date}
     defaults: {_controller: ABPlatformBundle:Book:updatepanier}
     requirements:
         id: \d*

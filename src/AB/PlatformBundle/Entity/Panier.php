@@ -21,33 +21,11 @@ class Panier
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="titre", type="text")
-     */
-    private $titre;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="auteur", type="string", length=255)
+     * @ORM\OneToMany(targetEntity="BookPanier", mappedBy="panier")
      */
-    private $auteur;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="prix", type="float")
-     */
-    private $prix;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="quantite", type="integer")
-     */
-    private $quantite;
+    private $books;
 
     /**
      * @var \Datetime
@@ -60,6 +38,7 @@ class Panier
     public function __construct()
     {
         $this->date= new \DateTime();
+        $this->books = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -71,101 +50,6 @@ class Panier
     {
         return $this->id;
     }
-
-    /**
-     * Set titre
-     *
-     * @param string $titre
-     * @return Panier
-     */
-    public function setTitre($titre)
-    {
-        $this->titre = $titre;
-
-        return $this;
-    }
-
-    /**
-     * Get titre
-     *
-     * @return string 
-     */
-    public function getTitre()
-    {
-        return $this->titre;
-    }
-
-    /**
-     * Set auteur
-     *
-     * @param string $auteur
-     * @return Panier
-     */
-    public function setAuteur($auteur)
-    {
-        $this->auteur = $auteur;
-
-        return $this;
-    }
-
-    /**
-     * Get auteur
-     *
-     * @return string 
-     */
-    public function getAuteur()
-    {
-        return $this->auteur;
-    }
-
-    /**
-     * Set prix
-     *
-     * @param float $prix
-     * @return Panier
-     */
-    public function setPrix($prix)
-    {
-        $this->prix = $prix;
-
-        return $this;
-    }
-
-    /**
-     * Get prix
-     *
-     * @return float 
-     */
-    public function getPrix()
-    {
-        return $this->prix;
-    }
-
-    /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     * @return Panier
-     */
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
-     * @return integer 
-     */
-
-    public function getQuantite()
-    {
-        return $this->quantite;
-    }
-
-    
 
     /**
      * Set date
@@ -188,5 +72,39 @@ class Panier
     public function getDate()
     {
         return $this->date;
+    }
+
+
+    /**
+     * Add books
+     *
+     * @param \AB\PlatformBundle\Entity\BookPanier $books
+     * @return Panier
+     */
+    public function addBook(\AB\PlatformBundle\Entity\BookPanier $books)
+    {
+        $this->books[] = $books;
+
+        return $this;
+    }
+
+    /**
+     * Remove books
+     *
+     * @param \AB\PlatformBundle\Entity\BookPanier $books
+     */
+    public function removeBook(\AB\PlatformBundle\Entity\BookPanier $books)
+    {
+        $this->books->removeElement($books);
+    }
+
+    /**
+     * Get books
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBooks()
+    {
+        return $this->books;
     }
 }

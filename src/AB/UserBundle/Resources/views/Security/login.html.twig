@@ -21,5 +21,13 @@
         </div>
     </form>
 
+        <p>
+        {% if app.session.flashBag.has('notice') %}
+            {% for msg in app.session.flashBag.get('notice') %}
+                <p class="alert alert-info">message flash: {{ msg }} </p>
+            {% endfor %}
+        {% endif %}
+        </p>
+
     {% endblock fos_user_content %}
 {% endblock %}

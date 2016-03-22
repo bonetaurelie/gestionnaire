@@ -3,8 +3,10 @@
 namespace AB\PlatformBundle\Controller;
 
 use AB\PlatformBundle\Entity\Book;
+use AB\PlatformBundle\Entity\BookPanier;
 use AB\PlatformBundle\Entity\Client;
 use AB\PlatformBundle\Entity\Panier;
+use AB\PlatformBundle\Form\BookPanierType;
 use AB\PlatformBundle\Form\BookType;
 use AB\PlatformBundle\Form\ClientType;
 use AB\PlatformBundle\Form\PanierType;
@@ -69,16 +71,39 @@ class BookController extends Controller
         return $this->render('ABPlatformBundle:Book:menu.html.twig',array('listBook'=>$listBook));
     }
 
-    public  function ajoutAction($id)
+    public  function ajoutAction(Request $request, $id,$date)
     {
-        $book = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
-            return $this->render('ABPlatformBundle:Book:choix.html.twig',array('book'=>$book));
+        $em = $this->getDoctrine()->getManager();
+        $book = $em->getRepository('ABPlatformBundle:Book')->find($id);
+        $panier = new Panier();
+        $bookpanier = new BookPanier();
+        $form = $this->createForm(new BookPanierType(),$bookpanier);
+        $form->handleRequest($request);
+        if($form->isValid()){
+            $now = new \DateTime(date('Y-m-d'));
+            $panier->setDate($now);
+            $em->persist($panier);
+            $book->setQuantite($book->getQuantite()- $bookpanier->getQuantite());
+            $em->persist($book);
+            $bookpanier->setBook($book);
+            $bookpanier->setPanier($panier);
+            $em->persist($bookpanier);
+            $em->flush();
+            if ($form->get('menu')->isClicked()) {
+                return $this->redirect($this->generateUrl("ab_platform_read"));
+            }
+            if ($form->get('panier')->isClicked()) {
+                return $this->redirect($this->generateUrl("ab_platform_panier",array('id'=>$id,'date'=>$date)));
+            }
+        }
+        return $this->render('ABPlatformBundle:Book:choix.html.twig',array('book'=>$book,'form'=>$form->createView()));
     }
 
-    public function updatePanierAction($id,$titre,$auteur,$prix,$quantite, Request $request){
-        $panier = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Book')->find($id);
+    public function updatePanierAction($id,$date,Request $request){
 
-        $form=$this->get('form.factory')->create(new BookType(), $panier);
+        $panier = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findOneById($date);
+
+        /*$form=$this->get('form.factory')->create(new BookType(), $panier);
         $panier= new Panier();
         $panier->setTitre($titre);
         $panier->setAuteur($auteur);
@@ -90,8 +115,8 @@ class BookController extends Controller
             $em->flush();
             $request->getSession()->getFlashBag()->add('notice','Le livre sélectionné a bien été enregistré dans votre panier');
             return $this->redirectToRoute('ab_platform_validation',array('id'=>$id,'titre'=>$panier->getTitre(),'auteur'=>$panier->getAuteur(),'prix'=>$panier->getPrix(), 'quantite'=>$quantite));
-        }
-        return $this->render('ABPlatformBundle:Book:panier.html.twig',array('form'=>$form->createView()));
+        }*/
+        return $this->render('ABPlatformBundle:Book:panier.html.twig',array('panier'=>$panier/*'form'=>$form->createView()*/));
     }
 
     public function validationAction($id, $limit=1, $offet=0, $titre){
