@@ -93,41 +93,18 @@ class BookController extends Controller
                 return $this->redirect($this->generateUrl("ab_platform_read"));
             }
             if ($form->get('panier')->isClicked()) {
-                return $this->redirect($this->generateUrl("ab_platform_panier",array('id'=>$id)));
+                return $this->redirect($this->generateUrl("ab_platform_compte"));
             }
         }
         return $this->render('ABPlatformBundle:Book:choix.html.twig',array('book'=>$book,'form'=>$form->createView()));
     }
 
-    public function updatePanierAction($id, Request $request){
-
-        $panier = $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->find($id);
-        return $this->render('ABPlatformBundle:Book:panier.html.twig',array('panier'=>$panier));
-    }
-
-    public function validationAction($id, $limit=1, $offet=0, $titre){
-        $listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findBy(
-            array('titre'=>$titre),
-            array('date'=>'DESC'),
-            $limit,
-            $offet
-        );
-        return $this->render('ABPlatformBundle:Book:validation.html.twig',array('listBook'=>$listBook));
+    public function updatePanierAction(){
+        return $this->render('ABPlatformBundle:Book:panier.html.twig');
     }
 
     public function compteAction(){
         return $this->render('ABPlatformBundle:Book:compte.html.twig');
-    }
-
-    public function paiementAction(){
-        /*$listBook= $this->getDoctrine()->getManager()->getRepository('ABPlatformBundle:Panier')->findBy(
-            array('titre'=>$titre),
-            array('date'=>'DESC'),
-            $limit,
-            $offet
-        );*/
-        return $this->render('ABPlatformBundle:Book:paiement.html.twig');
-
     }
 
 }
