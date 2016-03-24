@@ -29,7 +29,7 @@ security:
                 check_path: fos_user_security_check
                 use_referer: true
                 always_use_default_target_path: false
-                default_target_path: ab_platform_paiement
+                default_target_path: ab_platform_panier
             logout:
                 path: fos_user_security_logout
                 target: /
