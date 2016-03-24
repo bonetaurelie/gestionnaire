@@ -24,24 +24,13 @@ ab_platform_selection:
     requirements:
         id: \d*
 
-ab_platform_panier:
-    path:    /panier/{id}
-    defaults: {_controller: ABPlatformBundle:Book:updatepanier}
-    requirements:
-        id: \d*
-
-ab_platform_validation:
-    path:    /validation/{id}/{titre}
-    defaults: {_controller: ABPlatformBundle:Book:validation}
-    requirements:
-        id: \d*
-
 ab_platform_compte:
     path:    /compte
     defaults: {_controller: ABPlatformBundle:Book:compte}
 
-ab_platform_paiement:
-    path:    /paiement
-    defaults: {_controller: ABPlatformBundle:Book:paiement}
+ab_platform_panier:
+    path:    /panier
+    defaults: {_controller: ABPlatformBundle:Book:updatepanier}
     requirements:
         id: \d*
+
