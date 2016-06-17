@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'Junicode-Regular';
+    src: url('Junicode-Regular.ttf');
+}
+
+body {
+    font-family: "Junicode-Regular","arial";
+}
+
+.jumbotron{
+    background-color: rgb(72,196,255);
+}
+
+#menu{
+    color:rgb(72,196,255) ;
+}
+
+#menu a:hover{
+    color:rgb(72,196,255) ;
+}
+
+.btn-primary{
+    background-color: rgb(72,196,255);
+}
+
+.btn-warning{
+    background-color: rgb(242,198,62);
+}
+
+.btn-success {
+    background-color: rgb(5, 205, 0);
+}
+
+.compte{
+    margin-top: 50px;
+    margin-left: auto;
+}
