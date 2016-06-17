@@ -70,34 +70,7 @@ class BookController extends Controller
             0);
         return $this->render('ABPlatformBundle:Book:menu.html.twig',array('listBook'=>$listBook));
     }
-
-    public  function ajoutAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $book = $em->getRepository('ABPlatformBundle:Book')->find($id);
-        $panier = new Panier();
-        $bookpanier = new BookPanier();
-        $form = $this->createForm(new BookPanierType(),$bookpanier);
-        $form->handleRequest($request);
-        if($form->isValid()){
-            $now = new \DateTime(date('Y-m-d'));
-            $panier->setDate($now);
-            $em->persist($panier);
-            $book->setQuantite($book->getQuantite()- $bookpanier->getQuantite());
-            $em->persist($book);
-            $bookpanier->setBook($book);
-            $bookpanier->setPanier($panier);
-            $em->persist($bookpanier);
-            $em->flush();
-            if ($form->get('menu')->isClicked()) {
-                return $this->redirect($this->generateUrl("ab_platform_read"));
-            }
-            if ($form->get('panier')->isClicked()) {
-                return $this->redirect($this->generateUrl("ab_platform_compte"));
-            }
-        }
-        return $this->render('ABPlatformBundle:Book:choix.html.twig',array('book'=>$book,'form'=>$form->createView()));
-    }
+    
 
     public function updatePanierAction(){
         return $this->render('ABPlatformBundle:Book:panier.html.twig');
