@@ -20,12 +20,7 @@ class Panier
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-
-    /**
-     * @ORM\OneToMany(targetEntity="BookPanier", mappedBy="panier")
-     */
-    private $books;
+    
 
     /**
      * @var \Datetime
@@ -38,7 +33,6 @@ class Panier
     public function __construct()
     {
         $this->date= new \DateTime();
-        $this->books = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -73,38 +67,5 @@ class Panier
     {
         return $this->date;
     }
-
-
-    /**
-     * Add books
-     *
-     * @param \AB\PlatformBundle\Entity\BookPanier $books
-     * @return Panier
-     */
-    public function addBook(\AB\PlatformBundle\Entity\BookPanier $books)
-    {
-        $this->books[] = $books;
-
-        return $this;
-    }
-
-    /**
-     * Remove books
-     *
-     * @param \AB\PlatformBundle\Entity\BookPanier $books
-     */
-    public function removeBook(\AB\PlatformBundle\Entity\BookPanier $books)
-    {
-        $this->books->removeElement($books);
-    }
-
-    /**
-     * Get books
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getBooks()
-    {
-        return $this->books;
-    }
+    
 }
