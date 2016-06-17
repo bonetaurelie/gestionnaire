@@ -62,21 +62,16 @@ class Book
      */
     private $date;
 
-    /**
-     * @ORM\OneToMany(targetEntity="BookPanier", mappedBy="book")
-     */
-    private $paniers;
 
     public function __construct()
     {
-        $this->date= new \DateTime();
-        $this->paniers = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -99,7 +94,7 @@ class Book
     /**
      * Get titre
      *
-     * @return string 
+     * @return string
      */
     public function getTitre()
     {
@@ -122,7 +117,7 @@ class Book
     /**
      * Get auteur
      *
-     * @return string 
+     * @return string
      */
     public function getAuteur()
     {
@@ -145,7 +140,7 @@ class Book
     /**
      * Get prix
      *
-     * @return float 
+     * @return float
      */
     public function getPrix()
     {
@@ -168,7 +163,7 @@ class Book
     /**
      * Get quantiteDispo
      *
-     * @return integer 
+     * @return integer
      */
     public function getQuantite()
     {
@@ -198,36 +193,4 @@ class Book
         return $this->date;
     }
 
-    /**
-     * Add paniers
-     *
-     * @param \AB\PlatformBundle\Entity\BookPanier $paniers
-     * @return Book
-     */
-    public function addPanier(\AB\PlatformBundle\Entity\BookPanier $paniers)
-    {
-        $this->paniers[] = $paniers;
-
-        return $this;
-    }
-
-    /**
-     * Remove paniers
-     *
-     * @param \AB\PlatformBundle\Entity\BookPanier $paniers
-     */
-    public function removePanier(\AB\PlatformBundle\Entity\BookPanier $paniers)
-    {
-        $this->paniers->removeElement($paniers);
-    }
-
-    /**
-     * Get paniers
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPaniers()
-    {
-        return $this->paniers;
-    }
 }
