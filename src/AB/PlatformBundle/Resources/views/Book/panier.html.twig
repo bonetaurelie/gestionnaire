@@ -12,32 +12,13 @@
             <a class="btn btn-primary col-md-offset-2" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
         {% endif %}
     </div>
-    <h1>Ajoutez à Votre panier:</h1>
-
-
-    <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="ADRQCJZFFPYSN">
-        <table>
-            <tr><td><input type="hidden" name="on0" value="nom du menu déroulant">nom du menu déroulant</td></tr><tr><td><select name="os0">
-                        <option value="option1">option1 €0,00 EUR</option>
-                        <option value="option2">option2 €0,00 EUR</option>
-                        <option value="option3">option3 €0,00 EUR</option>
-                    </select> </td></tr>
-        </table>
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-        <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-    </form>
-
-    <br/>
-    <br/>
+    <h1>Validez et payez votre panier:</h1><br/>
 
     <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="QJWX9X6S7AMV8">
+        <input type="hidden" name="hosted_button_id" value="PTD4P8XTZ3BQY">
         <table>
-            <tr><td><input type="hidden" name="on0" value="titres et prix">titres et prix</td></tr><tr><td><select name="os0">
+            <tr><td><input type="hidden" name="on0" value="Nom du menu déroulant">Nom du menu déroulant</td></tr><tr><td><select name="os0">
                         <option value="Les sirène de Saint-Malo">Les sirène de Saint-Malo €7,90 EUR</option>
                         <option value="Une vie entre deux océans">Une vie entre deux océans €7,90 EUR</option>
                         <option value="Psycho Killer">Psycho Killer €7,30 EUR</option>
@@ -51,67 +32,9 @@
         <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
     </form>
 
-    <br/>
-    <br/>
-
-    <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="ADRQCJZFFPYSN">
-        <table>
-            <tr><td><input type="hidden" name="on0" value="Nom du menu déroulant">Nom du menu déroulant</td></tr><tr><td><select name="os0">
-                        <option value="Option 1">Option 1 €2,00 EUR</option>
-                        <option value="Option 2">Option 2 €3,00 EUR</option>
-                        <option value="Option 3">Option 3 €4,00 EUR</option>
-                    </select> </td></tr>
-        </table>
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-        <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-    </form>
 
 
-    <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="W4S7ACVKVM6NY">
-        <table>
-            <tr><td><input type="hidden" name="on0" value="Titre des livres">Titre des livres</td></tr><tr><td><select name="os0">
-                        <option value="Les sirènes de l'océan">Les sirènes de l'océan €7,90 EUR</option>
-                        <option value="Une autre idée du bonheur">Une autre idée du bonheur €21,50 EUR</option>
-                        <option value="De coeur inconnu">De coeur inconnu €17,00 EUR</option>
-                        <option value="Psycho Kyller">Psycho Kyller €7,30 EUR</option>
-                        <option value="Brûlée vive">Brûlée vive €18,90 EUR</option>
-                        <option value="Une vie entre deux océans">Une vie entre deux océans €7,90 EUR</option>
-                    </select> </td></tr>
-        </table>
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-        <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-    </form>
-
-    <br/>
-    <br/>
-
-    <form target="paypal" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_s-xclick">
-        <input type="hidden" name="hosted_button_id" value="AL2JX5LPTXH9A">
-        <table>
-            <tr><td><input type="hidden" name="on0" value="Titre des livres">Titre des livres</td></tr><tr><td><select name="os0">
-                        <option value="Les sirènes de l'océan">Les sirènes de l'océan €7,90 EUR</option>
-                        <option value="Une autre idée du bonheur">Une autre idée du bonheur €21,50 EUR</option>
-                        <option value="De coeur inconnu">De coeur inconnu €17,00 EUR</option>
-                        <option value="Psycho Kyller">Psycho Kyller €7,30 EUR</option>
-                        <option value="Brûlée vive">Brûlée vive €18,90 EUR</option>
-                        <option value="Une vie entre deux océans">Une vie entre deux océans €7,90 EUR</option>
-                    </select> </td></tr>
-        </table>
-        <input type="hidden" name="currency_code" value="EUR">
-        <input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne">
-        <img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-    </form>
-
-    <br/>
-    <br/>
-    
-    <a class="btn btn-danger" href="{{ path('ab_platform_read') }}">Annuler la commande</a>
+    <br/><br/>
+    <a class="btn btn-danger" href="{{ path('ab_platform_read') }}">Annuler le panier</a>
 
 {% endblock %}
