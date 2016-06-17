@@ -6,17 +6,17 @@
     <h1 class="text-center">Connexion à votre espace client:</h1>
 
     <form action="{{ path('fos_user_security_check') }}" method="post">
-        <div class="form-group col-md-offset-5">
+        <div class="form-group col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
             <label for="username">Login :</label><br/>
             <input type="text" id="username" name="_username" value="{{ last_username }}" />
         </div>
 
-        <div class="form-group col-md-offset-5">
+        <div class="form-group col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
             <label for="password">Mot de passe :</label><br/>
             <input type="password" id="password" name="_password" />
             <br />
         </div>
-        <div class="form-group col-lg-offset-3">
+        <div class="form-group col-md-offset-3 col-sm-offset-5 col-xs-offset-5">
             <input class="btn btn-primary col-md-offset-3" type="submit" value="Connexion" />
         </div>
     </form>
