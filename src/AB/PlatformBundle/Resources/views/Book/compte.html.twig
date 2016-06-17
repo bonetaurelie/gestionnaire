@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block body %}
-    <a class="btn-primary btn-lg" href="{{ path('fos_user_registration_register') }}">Nouveau client, créez votre espace client.</a>
-    <a class="btn-primary btn-lg" href="{{ path('fos_user_security_login') }}">Déja client, connectez vous à votre espace.</a>
+    <div class="compte">
+        <a class="btn-primary btn-lg" href="{{ path('fos_user_registration_register') }}">Nouveau client, créez votre espace client.</a><br/><br/><br/>
+        <a class="btn-primary btn-lg" href="{{ path('fos_user_security_login') }}">Déja client, connectez vous à votre espace.</a>
+    </div>
 {% endblock %}
