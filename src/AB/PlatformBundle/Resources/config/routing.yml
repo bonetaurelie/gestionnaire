@@ -18,11 +18,6 @@ ab_platform_read:
     path:    /read
     defaults: {_controller: ABPlatformBundle:Book:read}
 
-ab_platform_selection:
-    path:    /selection/{id}
-    defaults: {_controller: ABPlatformBundle:Book:ajout}
-    requirements:
-        id: \d*
 
 ab_platform_compte:
     path:    /compte
