@@ -40,9 +40,9 @@ Ajouter un livre - {{ parent() }}
         {{ form_widget(form.quantite, {'attr': {'class': 'form-control'}}) }}
     </div>
 </div>
-<div class="col-md-offset-6">
+<div class="col-md-offset-6 col-sm-offset-5 col-xs-offset-5">
     {{ form_widget(form.valider, {'attr': {'class': 'btn-primary btn-lg'}}) }}
-    <a class="btn-danger btn-lg col-md-offset-1" href="{{ path('ab_platform_read') }}">Annuler</a>
+    <a class="btn-lg btn-danger col-md-offset-1" href="{{ path('ab_platform_read') }}">Annuler</a>
 </div>
 
 {{ form_rest(form) }}
